@@ -1,0 +1,11 @@
+// _vars.scss
+
+@function css-var($name, $value) {
+    @return var(--#{$name});
+}
+
+$icon-size-override: css-var("icon-size-override", 32px);
+$icon-padding: css-var("icon-padding", 8px);
+$icon-left-offset: css-var("icon-left-offset", calc((var(--icon-size-override) - var(--icon-size)) / 2));
+$embed-border-left-size: css-var("embed-border-left-size", calc(var(--icon-size) + var(--icon-padding) * 2));
+$embed-border-padding: css-var("embed-border-padding", 4px);

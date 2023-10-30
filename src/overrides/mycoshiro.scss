@@ -1,0 +1,582 @@
+/**
+* Customizations for Obsidian designed for Mycoshiro vault
+*
+* Author: Joel Van Eenwyk
+*/
+
+@function css-var($name, $value: null) {
+    @return var(--#{$name});
+}
+
+$icon-size-override: css-var("icon-size-override", 32px);
+$icon-padding: css-var("icon-padding", 8px);
+$icon-left-offset: css-var("icon-left-offset", calc((var(--icon-size-override) - var(--icon-size)) / 2));
+$embed-border-left-size: css-var("embed-border-left-size", calc(var(--icon-size) + var(--icon-padding) * 2));
+$embed-border-padding: css-var("embed-border-padding", 4px);
+
+body {
+    --inline-title-background-color: #1f1f1f !important;
+    --line-width: 80% !important;
+    --max-width: 95% !important;
+    --spacing-p: 0em !important;
+}
+
+.CodeMirror-cursor,
+div.CodeMirror-cursor,
+.cm-fat-cursor,
+.cm-animate-fat-cursor,
+.cm-fat-cursor-mark,
+.cm-cursor {
+    visibility: visible !important;
+}
+
+img,
+.markdown-preview-view img,
+.markdown-rendered img {
+    image-rendering: auto !important;
+    -ms-interpolation-mode: bicubic !important;
+}
+
+p {
+    margin-block-start: 10px;
+}
+
+ol,
+ul {
+    margin-block-start: 0px;
+}
+
+.frontmatter-container .frontmatter-section-label {
+    padding-right: 0.5em;
+    flex-basis: 10em;
+    flex-shrink: 0;
+}
+
+body > div.app-container div.view-content div.markdown-reading-view div > p {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+/*
+Fixes a bug when preview is always enabled that results in the image
+being displayed twice.
+*/
+body
+    div.view-content
+    div.markdown-source-view.is-live-preview.is-readable-line-width
+    div.cm-contentContainer
+    div.HyperMD-list-line.cm-line
+    > div {
+    visibility: hidden;
+    border-width: 0;
+    padding: 0;
+    width: 0px;
+    height: 0px;
+}
+
+/*
+Header 1
+*/
+
+.cm-s-obsidian .HyperMD-header.HyperMD-header-1,
+div.view-content div.markdown-reading-view h1,
+div.markdown-embed div.markdown-preview-section div > h1 {
+    margin-top: 0px;
+    padding: 0 0 5px 0;
+    /* font-size: 20px; */
+    border-bottom: 2px solid;
+    border-color: css-var(h1-color);
+    margin-bottom: 10px;
+}
+
+summary:focus,
+summary:focus-visible {
+    background: rgba(35, 255, 35, 155) !important;
+}
+
+/*
+Header 2
+*/
+
+.cm-s-obsidian .HyperMD-header.HyperMD-header-2,
+div.view-content div.markdown-reading-view h2,
+div.markdown-embed div.markdown-preview-section div > h2 {
+    padding: 10px 0 5px 0;
+    /* font-size: 18px; */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    border-color: css-var(h2-color);
+}
+
+/*
+Header 3
+*/
+
+.cm-s-obsidian .HyperMD-header.HyperMD-header-3,
+div.view-content div.markdown-reading-view h3,
+div.markdown-embed div.markdown-preview-section div > h3 {
+    padding: 10px 0 5px 0;
+    /* font-size: 16px; */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    border-color: #45454541;
+}
+
+/*
+Header 4
+*/
+
+.cm-s-obsidian .HyperMD-header.HyperMD-header-4,
+div.view-content div.markdown-reading-view h4,
+div.markdown-embed div.markdown-preview-section div > h4 {
+    padding: 10px 0 5px 0;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+    border-color: #45454541;
+}
+
+/*
+Title
+*/
+
+.markdown-source-view.mod-cm6.is-readable-line-width .inline-title {
+    font-size: 30px;
+}
+
+/*
+.cm-sizer,
+.mod-header {
+    background-color: css-var(inline-title-background-color);
+}
+
+.cm-sizer div:not(.inline-title),
+.mod-header div:not(.inline-title) {
+    background-color: css-var(bg1);
+}
+*/
+
+div.HyperMD-list-line.HyperMD-list-line-1.cm-line {
+    padding-right: 20px;
+}
+
+div.mod-header {
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+div > ul,
+div > ol {
+    padding-top: 10px;
+}
+
+.CodeMirror .CodeMirror-line,
+.CodeMirror .CodeMirror-line-like {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.CodeMirror-code > pre.CodeMirror-line > span {
+    word-wrap: break-all !important;
+    white-space: break-spaces !important;
+    overflow-wrap: break-word !important;
+    display: block;
+}
+
+.canvas div.mod-header > div.inline-title {
+    font-size: 0px;
+    height: 0px;
+    visibility: hidden;
+}
+
+body > div.app-container div.cm-contentContainer img {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+}
+
+kbd {
+    border-radius: 3px;
+    padding: 1px 4px 0;
+    border: 1px solid rgb(70, 70, 70);
+    background-color: rgb(46, 46, 46);
+}
+
+//
+// Metatable {START}
+//
+
+div.obsidian-metatable {
+    --metatable-background-focus: transparent !important;
+}
+
+// div.obsidian-metatable.light details.metatable > summary {
+//     /* global */
+//     --metatable-background-focus: lightyellow;
+//
+//     /* leafs */
+//     --metatable-leaf-number-color: purple;
+//     --metatable-leaf-boolean-color: slateblue;
+//     --metatable-leaf-date-color: darkolivegreen;
+//     --metatable-leaf-nil-color: inherit;
+//
+//     /* warning */
+//     --metatable-warning-background: lightgoldenrodyellow;
+//     --metatable-warning-foreground: brown;
+//     --metatable-warning-border: 2px solid palegoldenrod;
+// }
+//
+// div.obsidian-metatable.dark details.metatable > summary {
+//     --metatable-background-focus: rgba(255, 255, 0, 0.5) !important;
+//     --metatable-text-focus: orange;
+//
+//     /* leafs */
+//     --metatable-leaf-number-color: lightpink;
+//     --metatable-leaf-boolean-color: lightskyblue;
+//     --metatable-leaf-date-color: darkseagreen;
+//     --metatable-leaf-nil-color: inherit;
+//
+//     /* tags */
+//     --metatable-tag-background: transparent !important;
+//
+//     /* links */
+//     --metatable-warning-background: transparent;
+//     --metatable-warning-color: gold;
+//     --metatable-warning-border: 2px solid palegoldenrod;
+// }
+//
+// :host(.light.obsidian-metatable-sidebar) {
+//     --metatable-tag-background: css-var(metatable-background-secondary-alt);
+// }
+//
+// * {
+//     box-sizing: border-box;
+// }
+//
+// .root {
+//     background: css-var(metatable-root-background);
+//     color: css-var(metatable-root-color);
+//     font-family: css-var(metatable-font-family);
+//     font-size: css-var(metatable-font-size);
+//
+//     user-select: text;
+// }
+//
+// .metatable-sidebar {
+//     font-size: calc(css-var(metatable-font-size) - 1px);
+// }
+// .metatable-sidebar.root {
+//     margin: 10px;
+// }
+//
+// details {
+//     margin-bottom: 20px;
+// }
+//
+// summary {
+//     background: transparent !important; //css-var(metatable-summary-background-focus);
+//     //background: css-var(metatable-summary-background);
+//     color: css-var(metatable-summary-color);
+//
+//     cursor: pointer;
+//
+//     display: grid;
+//     grid-gap: 4px;
+//     grid-template-columns: 10px auto;
+// }
+//
+// summary::before {
+//     display: block;
+//     font-size: 10px;
+//     padding-top: 4px;
+//     content: css-var(metatable-collapsed-symbol);
+// }
+//
+// details[open] summary::before {
+//     padding-top: 5px;
+//     content: css-var(metatable-expanded-symbol);
+// }
+//
+// summary:focus,
+// summary:focus-visible {
+//     background: transparent !important; //css-var(metatable-summary-background-focus);
+//     outline: none !important;
+// }
+//
+// summary + * {
+//     margin-top: 20px;
+// }
+//
+// .metatable-sidebar > .summary {
+//     font-size: css-var(font-text-size, 1.2rem);
+//     margin-top: 0;
+// }
+//
+// .set {
+//     background: css-var(metatable-set-background);
+//     color: css-var(metatable-set-color);
+//
+//     display: grid;
+//     grid-gap: 2px;
+// }
+//
+// .member {
+//     background: css-var(metatable-member-background);
+//     color: css-var(metatable-member-color);
+//
+//     grid-gap: 2px;
+//     display: grid;
+//     grid-template-areas: "key value";
+//     grid-template-columns: minmax(0, 2fr) minmax(0, 4fr);
+// }
+//
+// .member:nth-child(even) {
+//     background: css-var(metatable-background-alt);
+// }
+//
+// .tight .member {
+//     display: block;
+// }
+//
+// .member .key {
+//     background: css-var(metatable-key-background);
+//     color: css-var(metatable-key-color);
+//
+//     display: block;
+//     font-weight: 600;
+//     overflow: hidden;
+//     padding: 2px 4px;
+//     text-align: left;
+//     text-overflow: ellipsis;
+// }
+//
+// .key > span {
+//     display: block;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+// }
+//
+// .member .key.toggle {
+//     display: grid;
+//     grid-area: key;
+//     grid-gap: 4px;
+//     grid-template-columns: 10px auto;
+// }
+//
+// .member .key[role="button"] {
+//     cursor: pointer;
+// }
+//
+// .member .key:focus,
+// .member .key:focus-visible {
+//     background: css-var(metatable-key-background-focus);
+//     color: css-var(metatable-key-color-focus);
+//
+//     outline: none;
+// }
+//
+// .key[aria-expanded]::before {
+//     font-size: 8px;
+//     padding-top: 6px;
+// }
+//
+// .key[aria-expanded="true"]::before {
+//     padding-top: 7px;
+// }
+//
+// .metatable-sidebar .key[aria-expanded]::before {
+//     padding-top: 1px;
+// }
+//
+// .metatable-sidebar .key[aria-expanded="true"]::before {
+//     padding-top: 2px;
+// }
+//
+// .key[aria-expanded="true"]::before {
+//     content: css-var(metatable-expanded-symbol);
+// }
+//
+// .key[aria-expanded="false"]::before {
+//     content: css-var(metatable-collapsed-symbol);
+// }
+//
+// .key[aria-expanded="false"] + .value > :first-child {
+//     display: none;
+// }
+//
+// .key[aria-expanded="false"] + .value > .marker::after {
+//     content: css-var(metatable-mark-symbol);
+//
+//     display: block;
+//     padding-top: 2px;
+// }
+//
+// .member .value {
+//     background: css-var(metatable-value-background);
+//     color: css-var(metatable-value-color);
+//
+//     display: block;
+//     grid-area: value;
+//     margin: 0;
+//     overflow: auto;
+//     padding: 2px 4px;
+// }
+//
+// .tight .member .value {
+//     margin-left: 16px;
+// }
+//
+// .member .toggle + .value {
+//     padding: 0;
+// }
+//
+// .list {
+//     margin: 0;
+//     padding: 0 0 0 16px;
+// }
+//
+// .list-item {
+//     margin-left: 1rem;
+// }
+//
+// /* warning */
+// .parse-error {
+//     background: css-var(metatable-warning-background);
+//     color: css-var(metatable-warning-color);
+//     border: css-var(metatable-warning-border);
+//
+//     margin: 0;
+//     padding: 8px;
+// }
+//
+// .parse-error p {
+//     margin-top: 0;
+// }
+//
+// /* Leafs */
+// .number {
+//     color: css-var(metatable-leaf-number-color);
+// }
+//
+// .boolean {
+//     color: css-var(metatable-leaf-boolean-color);
+// }
+//
+// .isodate {
+//     color: css-var(metatable-leaf-date-color);
+// }
+//
+// .nil {
+//     color: css-var(metatable-leaf-nil-color);
+// }
+//
+// /* links */
+// .external-link {
+//     background: css-var(metatable-external-link-background);
+//     color: css-var(metatable-external-link-color);
+//
+//     display: inline-block;
+//     white-space: nowrap;
+// }
+//
+// .external-link::after {
+//     content: css-var(metatable-external-link-icon);
+//
+//     display: inline-block;
+//     margin-left: 0.3rem;
+//     vertical-align: sub;
+// }
+//
+// .external-link:hover {
+//     background: css-var(metatable-external-link-background-hover);
+//     color: css-var(metatable-external-link-color-hover);
+// }
+//
+// .external-link:focus,
+// .external-link:focus-visible {
+//     background: css-var(metatable-internal-link-background-focus);
+//     color: css-var(metatable-internal-link-color-focus);
+// }
+//
+// .internal-link {
+//     background: css-var(metatable-internal-link-background);
+//     color: css-var(metatable-internal-link-color);
+//
+//     display: inline-block;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     max-width: 450px;
+//     white-space: nowrap;
+// }
+//
+// .internal-link:hover {
+//     background: css-var(metatable-internal-link-background-hover);
+//     color: css-var(metatable-internal-link-color-hover);
+// }
+//
+// .internal-link:focus,
+// .internal-link:focus-visible {
+//     background: css-var(metatable-internal-link-background-focus);
+//     color: css-var(metatable-internal-link-color-focus);
+// }
+//
+// /* tags */
+// .value .list-tags {
+//     padding: 2px 0 0 0;
+// }
+//
+// .list-tags li {
+//     display: inline-block;
+//     margin: 0 4px 4px 0;
+// }
+//
+// .tag {
+//     background: css-var(metatable-tag-background);
+//     color: css-var(metatable-tag-color);
+//     border: css-var(metatable-tag-border);
+//
+//     display: block;
+//     border-radius: 16px;
+//     margin: 0;
+//     padding: 0 10px;
+//     text-decoration: none;
+// }
+//
+// .tag::before {
+//     content: css-var(metatable-tag-symbol);
+// }
+//
+// .tag:hover {
+//     filter: brightness(0.8);
+// }
+//
+// .tag:focus,
+// .external-link:focus,
+// .internal-link:focus {
+//     outline: none;
+// }
+//
+// .tag:focus-visible,
+// .external-link:focus-visible,
+// .internal-link:focus-visible {
+//     background: css-var(metatable-tag-background-focus);
+//     color: css-var(metatable-tag-color-focus);
+//
+//     outline: none;
+// }
+//
+// .pane-empty {
+//     color: css-var(metadata-text-primary);
+//     font-size: 16px;
+//     margin: 6px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+//
+// Metatable {END}
+//
