@@ -1,8 +1,8 @@
 {
-	"name": "Minimal",
-	"version": "7.3.3",
-	"minAppVersion": "1.1.9",
-	"author": "@kepano",
-	"authorUrl": "https://twitter.com/kepano",
-	"fundingUrl": "https://www.buymeacoffee.com/kepano"
+  "manifest_version": 3,
+  "name": "Mycoshiro Theme",
+  "version": "7.2.3",
+  "minAppVersion": "1.1.9",
+  "author": "Joel Van Eenwyk",
+  "authorUrl": "https://github.com/joelvaneenwyk/"
 }

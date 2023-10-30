@@ -16,7 +16,6 @@ You can define separate color schemes for light and dark mode using the [[Minima
 - Catppuccin
 - Dracula
 - [[E-ink mode|E-ink (beta)]]
-- [Flexoki](https://stephango.com/flexoki)
 - Everforest
 - Gruvbox
 - macOS

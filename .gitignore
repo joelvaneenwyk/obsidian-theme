@@ -3,3 +3,15 @@
 .sass-cache/*
 .env
 /docs/.obsidian
+
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/cache/
+.yarn/unplugged/
+.yarn/install-state.gz
+*.css.map
+dist/
+
+# If the environment is not setup correctly (e.g., on Windows), this file will get
+# generated incorrectly.
+undefinedtheme.css
