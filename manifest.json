@@ -1,5 +1,6 @@
 {
   "manifest_version": 3,
+  "id": "mycoshiro-theme",
   "name": "Mycoshiro Theme",
   "version": "7.2.3",
   "minAppVersion": "1.1.9",
